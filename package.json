@@ -1,0 +1,27 @@
+{
+  "name": "gbc-ontdek-spoorzone",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactieve ontdekkaart Spoorzone voor Green Business Club Den Bosch",
+  "scripts": {
+    "dev": "vite",
+    "dev:embed-host": "vite --config vite.embed-host.config.ts",
+    "build": "tsc --noEmit && vite build && npm run generate:fallback",
+    "build:subdir": "tsc --noEmit && vite build --base=/den-bosch/stadswandeling/kaart/ && npm run generate:fallback",
+    "generate:fallback": "tsx scripts/generate-fallback.ts",
+    "preview": "vite preview",
+    "preview:subdir": "vite preview --base=/den-bosch/stadswandeling/kaart/",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/validate/run-checks.ts",
+    "test:ui": "node scripts/click-test.mjs",
+    "test:build-subdir": "npm run build:subdir && node scripts/check-subdir-assets.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "playwright": "^1.51.0",
+    "tsx": "^4.19.3",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.2"
+  }
+}

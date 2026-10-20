@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GBC kaart — iframe testhost</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        color: #172322;
+        background: #f7f6f3;
+      }
+      body {
+        margin: 0;
+        padding: 1.5rem;
+      }
+      .shell {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.35rem;
+        margin: 0 0 0.35rem;
+      }
+      p {
+        margin: 0 0 1rem;
+        line-height: 1.5;
+      }
+      .note {
+        font-size: 0.95rem;
+        color: #3d4a48;
+        margin-bottom: 1.25rem;
+      }
+      iframe {
+        display: block;
+        width: 100%;
+        border: 0;
+        background: #fff;
+        min-height: 640px;
+      }
+      code {
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <h1>WordPress-achtige testhost</h1>
+      <p class="note">
+        Draait op poort <code>5174</code>; de kaartmodule op
+        <code>5173</code>. Zo test je cross-origin hoogtecommunicatie.
+        Pas <code>data-map-src</code> aan indien nodig.
+      </p>
+      <iframe
+        id="gbc-map-embed"
+        title="Ontdek de Spoorzone — interactieve wandelkaart"
+        data-map-src="http://127.0.0.1:5173/?embed=1"
+        src="http://127.0.0.1:5173/?embed=1"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+    <script type="module" src="./host.js"></script>
+  </body>
+</html>
